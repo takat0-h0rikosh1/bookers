@@ -1,0 +1,9 @@
+<div hidden class="hidden-message">
+  <%= "#{key}: #{msgs}" %>
+</div>
+
+<% msgs.each do |msg| %>
+  <script type="text/javascript">
+    toastr['<%= key %>']('<%= "#{key}: #{msg}" %>');
+  </script>
+<% end %>

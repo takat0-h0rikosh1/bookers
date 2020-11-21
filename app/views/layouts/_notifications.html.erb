@@ -1,0 +1,9 @@
+<% flash.each do |key, value| %>
+  <% key = "success" if key == "notice" %>
+  <% key = "error" if key == "alert" %>
+  <% if value.kind_of?(Array) %>
+     <%= render 'layouts/toastr', key: key, msgs: value %>
+  <% else %>
+    <%= render 'layouts/toastr', key: key, msgs: [value] %>
+  <% end %>
+<% end %>
