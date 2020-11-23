@@ -71,3 +71,8 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
 gem 'toastr-rails'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
