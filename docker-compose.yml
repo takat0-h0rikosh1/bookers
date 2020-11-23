@@ -2,17 +2,24 @@ version: "3.8"
 services:
   app:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+#    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bundle exec puma -C config/puma.rb
     volumes:
       - .:/app
+      - public:/app/public
+      - tmp:/app/tmp
     ports:
       - "3000:3000"
   proxy:
     build:
       context: nginx
     volumes:
-      - ../public:/app/public
+      - public:/app/public
+      - tmp:/app/tmp
     ports:
       - 80:80
     depends_on:
       - app
+volumes:
+  public:
+  tmp:
