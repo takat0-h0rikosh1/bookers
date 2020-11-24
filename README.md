@@ -5,7 +5,8 @@ Clich [here](http://bookers2.takat0-h0rikosh1.com/).
 ## App Start
 
 ```sh
-docker-compose up
+docker-compose run web rails db:migrate
+docker-compose up -d
 ```
 
 ## Deploy
