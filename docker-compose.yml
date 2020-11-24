@@ -9,9 +9,9 @@ services:
       - tmp:/app/tmp
     ports:
       - "3000:3000"
-    environment:
-      - RAILS_ENV=development
-      - RAILS_SERVE_STATIC_FILES=false
+    env_file:
+      - .docker-env
+
   proxy:
     build:
       context: nginx
