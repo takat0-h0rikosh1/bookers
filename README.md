@@ -12,17 +12,10 @@ docker-compose -f docker-compose.prd.yml up -d
 ## Deploy
 
 ```sh
-# login to ec2
-ssh -i /path/to/xxx.pem ec2-user@xxx.xxx.xxx.xxx
-
-# on ec2
-cd bookers
-git pull
-docker-compose down
-docker-compose build
-docker-compose run app rails assets:precompile RAILS_ENV=production
-docker-compose run app rails db:create db:migrate RAILS_ENV=production
-docker-compose -f docker-compose.prd.yml up -d
+ssh -i path/to/xxx.pem \
+    ec2-user@xxx.xxx.xxx.xxx \
+    /bin/bash -c cd bookers; \
+    make service_restart RAILS_ENV=production RAILS_SERVE_STATIC_FILES=true
 ```
 
 ## Note
