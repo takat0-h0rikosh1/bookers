@@ -5,7 +5,7 @@ RUN curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 RUN apt-get update -qq && \
-    apt-get install -y nodejs imagemagick libmagickwand-dev php-pear php-dev
+    apt-get install -y nodejs yarn imagemagick libmagickwand-dev php-pear php-dev
 
 RUN pecl install imagick
 
