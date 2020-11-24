@@ -1,7 +1,7 @@
 FROM ruby:2.6.3
 
 RUN apt-get update -qq && \
-    apt-get install -y nodejs imagemagick libmagickwand-dev php-pear php-dev
+    apt-get install -y nodejs yarn imagemagick libmagickwand-dev php-pear php-dev
 
 RUN pecl install imagick
 
