@@ -2,7 +2,7 @@ version: "3.8"
 services:
   app:
     build: .
-    command: bundle exec puma -C config/puma.rb
+    command: bundle exec puma -C config/puma.rb -e ${RAILS_ENV}
     volumes:
       - .:/app
       - public:/app/public
