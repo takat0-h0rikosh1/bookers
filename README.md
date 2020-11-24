@@ -4,9 +4,6 @@
 
 ```sh
 docker-compose up
-
-# production
-docker-compose -f docker-compose.prd.yml up -d
 ```
 
 ## Deploy
@@ -14,8 +11,7 @@ docker-compose -f docker-compose.prd.yml up -d
 ```sh
 ssh -i path/to/xxx.pem \
     ec2-user@xxx.xxx.xxx.xxx \
-    /bin/bash -c cd bookers; \
-    make service_restart RAILS_ENV=production RAILS_SERVE_STATIC_FILES=true
+    'cd bookers; make service_restart RAILS_ENV=production RAILS_SERVE_STATIC_FILES=true'
 ```
 
 ## Note
@@ -39,6 +35,6 @@ sudo service docker start
 sudo curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
-# require relogin after exit
+# require re-login after exit
 exit
 ```
